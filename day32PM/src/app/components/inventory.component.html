@@ -1,0 +1,39 @@
+<div>
+    <!-- (click) to activate event, selects picture and set item's name and price-->
+    <button type="button" *ngFor="let i of list.show()" (click)="selectItem(i.name)">
+    <img src="/assets/fruits/{{ i.name }}.png" class="picture">
+    </button>
+</div>
+
+<br>
+<!-- (ngSubmit)="addToCart()" is to trigger event and to sen -->
+<form [formGroup]="selectForm" (ngSubmit)="addToCart()">
+    <table>
+        <tr>
+            <td>Item:</td>
+            <td>
+                <input type="text" readonly formControlName="item">
+            </td>
+        </tr>
+        <tr>
+            <td>Unit Price:</td>
+            <td>
+                <input type="number" readonly formControlName="unitPrice">
+            </td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td>
+                <input type="number" min="1" formControlName="quantity">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div>
+                    <button type="submit" [disabled]="selectForm.invalid">Add to Cart</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+

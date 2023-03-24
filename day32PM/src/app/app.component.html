@@ -1,0 +1,4 @@
+<h1>Select Items: </h1>
+
+<app-inventory (onNewItem)="addItemToCart($event)"></app-inventory>
+<app-cart [itemOrders]="selectionBasket" (onNewCart)="addCheckoutToList($event)"></app-cart>
